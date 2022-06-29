@@ -4,8 +4,6 @@ An automation tool for [Apxor](https://apxor.com) employees to auto-submit the C
 
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/theskinnycoder/lemme-in/blob/main/LICENSE)
 
-[![Firebase Functions Deploy](https://github.com/theskinnycoder/lemme-in/actions/workflows/firebase.yml/badge.svg)](https://github.com/theskinnycoder/lemme-in/actions/workflows/firebase.yml)
-
 ## **Tech Stack**
 
 - **Frontend** : Next.js (React), Chakra UI
