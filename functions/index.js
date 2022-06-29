@@ -14,6 +14,6 @@ exports.submitForm = functions
       },
     });
     const data = await res.json();
-    console.log(data);
+    functions.logger.log(data);
     return null;
   });

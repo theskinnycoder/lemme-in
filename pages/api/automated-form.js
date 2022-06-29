@@ -39,13 +39,17 @@ export default async function handler(req, res) {
           }
         )
       );
-      await Promise.all(promises);
-      res.status(200).json({
+
+      const output = {
         message: `A total of ${
           promises.length
         } CIE Entry Access Forms for ${tomorrowsDate.toDateString()} are submitted successfully`,
         submittedForms: allForms.map((form) => form.name),
-      });
+      };
+
+      console.log(output);
+
+      res.status(200).json(output);
     }
   } else {
     res.status(405).send("Method not allowed");
