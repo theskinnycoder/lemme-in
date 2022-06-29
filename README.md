@@ -4,6 +4,8 @@ An automation tool for [Apxor](https://apxor.com) employees to auto-submit the C
 
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/theskinnycoder/lemme-in/blob/main/LICENSE)
 
+[![Firebase Functions Deploy](https://github.com/theskinnycoder/lemme-in/actions/workflows/firebase.yml/badge.svg)](https://github.com/theskinnycoder/lemme-in/actions/workflows/firebase.yml)
+
 ## **Tech Stack**
 
 - **Frontend** : Next.js (React), Chakra UI
@@ -17,19 +19,19 @@ An automation tool for [Apxor](https://apxor.com) employees to auto-submit the C
 1. Clone the repo
 
 ```bash
-  git clone https://github.com/theskinnycoder/lemme-in.git
+git clone https://github.com/theskinnycoder/lemme-in.git
 ```
 
 2. Go to the project directory
 
 ```bash
-  cd lemme-in
+cd lemme-in
 ```
 
 3. Install dependencies
 
 ```bash
-  npm i
+npm i
 ```
 
 4. Add the environment variables to **`.env`** (Take a look at the **`.env.example`**)
@@ -37,7 +39,7 @@ An automation tool for [Apxor](https://apxor.com) employees to auto-submit the C
 5. Start the server
 
 ```bash
-  npm start
+npm start
 ```
 
 ## **Environment Variables**
