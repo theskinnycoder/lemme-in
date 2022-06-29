@@ -1,9 +1,11 @@
 import {
+  Alert,
+  AlertIcon,
   Button,
+  chakra,
   Divider,
   FormControl,
   FormErrorMessage,
-  FormHelperText,
   FormLabel,
   Heading,
   HStack,
@@ -11,7 +13,7 @@ import {
   Text,
   Tooltip,
   VStack,
-  chakra,
+  useToast,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
@@ -19,12 +21,14 @@ import useAccessForm from "../hooks/useAccessForm";
 
 export default function EntryRequestForm({ user }) {
   const { getYourData, createEntry } = useAccessForm(user?.id);
+
   const {
     formState: { errors, isSubmitting },
     handleSubmit,
     reset,
     register: formRegister,
   } = useForm();
+  const toast = useToast();
 
   const [allFieldsSet, setAllFieldsSet] = useState(true);
   const [showForm, setShowForm] = useState(false);
@@ -42,7 +46,16 @@ export default function EntryRequestForm({ user }) {
 
   async function submitHandler(data) {
     await createEntry(data);
+    toast({
+      title: "Success!",
+      description: `Your template is ${allFieldsSet ? "updated" : "created"}!`,
+      status: "success",
+      duration: 2500,
+      isClosable: true,
+      position: "top",
+    });
     setAllFieldsSet(true);
+    setShowForm(false);
   }
 
   return !showForm && allFieldsSet ? (
@@ -58,10 +71,11 @@ export default function EntryRequestForm({ user }) {
         !
       </Heading>
       <Heading fontSize="3xl">
-        Yay! You already filled out your template for the entry request.
+        🥳 Yay! You already filled out your template for the entry request
+        automation.
       </Heading>
       <Text fontSize="lg">
-        You can edit your template by clicking the button below.
+        You can edit your template by clicking the button below 👇
       </Text>
       <Button
         size="lg"
@@ -92,12 +106,14 @@ export default function EntryRequestForm({ user }) {
         !
       </Heading>
       <Text fontWeight="medium">
-        If you&apos;re here, you either are visiting for the first time or you
-        wanna edit your template.
+        {allFieldsSet
+          ? "Wanna update your template? The form is as of now pre-filled with your previous data. Please do not change anything unless you want to change your template."
+          : "Fill out your template! I did you a favor by filling out some of the fields below. Please fill out the rest of the fields."}
       </Text>
-      <Text fontSize="xl" fontWeight="medium" color="#f07935">
+      <Alert status="info">
+        <AlertIcon />
         Remember to fill in all the fields for this automation to work.
-      </Text>
+      </Alert>
       <Divider />
       <FormControl isInvalid={errors.name}>
         <FormLabel htmlFor="name">Employee Name</FormLabel>
@@ -217,7 +233,6 @@ export default function EntryRequestForm({ user }) {
           type="text"
           w={["xs", "sm", "lg"]}
         />
-        <FormHelperText>Did you a favor by filling it out.</FormHelperText>
         <FormErrorMessage>{errors?.purpose?.message}</FormErrorMessage>
       </FormControl>
       <HStack spacing={4}>

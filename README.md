@@ -48,6 +48,7 @@ To run this project, you will need to add the following environment variables to
 
 - **`NEXT_PUBLIC_SUPABASE_URL`**
 - **`NEXT_PUBLIC_SUPABASE_KEY`**
+- **`GOOGLE_FORM_ID`** (Server only)
 
 ## **Authors**
 

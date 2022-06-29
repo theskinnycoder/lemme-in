@@ -1,11 +1,11 @@
 import supabaseClient from "../../lib/supabase";
+import { GOOGLE_FORM_ID } from "../../utils/constants";
 
 export default async function handler(req, res) {
   let tomorrowsDate = new Date();
   tomorrowsDate.setDate(tomorrowsDate.getDate() + 1);
 
-  const formId = "1FAIpQLScxbZ9DxBFP_bbj-TmBJx1985UrBlk5lTOjORcqFab-xY28Nw";
-  const formUrl = `https://docs.google.com/forms/d/e/${formId}/formResponse`;
+  const formUrl = `https://docs.google.com/forms/d/e/${GOOGLE_FORM_ID}/formResponse`;
 
   const fieldToAriaLabelMap = (data) => ({
     "entry.1745402405": data.name,

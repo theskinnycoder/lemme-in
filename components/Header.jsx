@@ -26,7 +26,14 @@ export default function Header() {
         mx="auto"
       >
         <NextLink href="/" passHref>
-          <Heading size="md" as="a" color="#f07935">
+          <Heading
+            size="md"
+            as="a"
+            color="#f07935"
+            _hover={{
+              color: "#039be5",
+            }}
+          >
             lemme in!
           </Heading>
         </NextLink>
