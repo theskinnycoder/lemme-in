@@ -10,7 +10,9 @@ export default function Home() {
     <EntryRequestForm user={user} />
   ) : (
     <VStack minH="75vh" justify="center" spacing={5} textAlign="center">
-      <Heading>You need to sign in with slack to continue :</Heading>
+      <Heading fontSize="2xl">
+        You need to sign in with slack to continue :
+      </Heading>
       <IconButton icon={<SlackIcon />} onClick={signInWithSlack} size="lg" />
     </VStack>
   );

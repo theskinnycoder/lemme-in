@@ -8,7 +8,7 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <AuthContextProvider>
       <ChakraProvider theme={theme}>
-        <Flex direction="column" minH="100vh">
+        <Flex direction="column" minH="100vh" color="white">
           <Header />
           <VStack flex={1} maxW="container.md" mx="auto" px={[5, 5, 0]} py={10}>
             <Component {...pageProps} />
