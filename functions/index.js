@@ -1,9 +1,10 @@
 const functions = require("firebase-functions");
+const fetch = require("isomorphic-unfetch");
 
 exports.submitForm = functions
   .region("asia-south1")
-  // every weekday at 6:00 PM
-  .pubsub.schedule("30 6 * * 1-5")
+  // Sunday to Thursday at 6:00 PM
+  .pubsub.schedule("0 6 * * 0-4")
   // Asia Kolkata
   .timeZone("Asia/Kolkata")
   .onRun(async (context) => {
