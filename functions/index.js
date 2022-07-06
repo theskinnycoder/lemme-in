@@ -4,7 +4,7 @@ const fetch = require("isomorphic-unfetch");
 exports.submitForm = functions
   .region("asia-south1")
   // Sunday to Thursday at 6:00 PM
-  .pubsub.schedule("0 6 * * 0-4")
+  .pubsub.schedule("0 18 * * 0-4")
   // Asia Kolkata
   .timeZone("Asia/Kolkata")
   .onRun(async (context) => {
