@@ -8,10 +8,18 @@ exports.submitForm = functions
   // Asia Kolkata
   .timeZone("Asia/Kolkata")
   .onRun(async (context) => {
-    const res = await fetch("https://lemme-in.vercel.app/api/automated-form", {
-      method: "POST",
-    });
-    const data = await res.json();
-    functions.logger.log(data);
-    return null;
+    try {
+      const res = await fetch(
+        "https://lemme-in.vercel.app/api/automated-form",
+        {
+          method: "POST",
+        }
+      );
+      const data = await res.json();
+      functions.logger.log(data);
+    } catch (error) {
+      functions.logger.error(error);
+    } finally {
+      return null;
+    }
   });
